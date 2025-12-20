@@ -1,0 +1,3491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pham Ha Ngoc - Portfolio</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+            rel="stylesheet">
+
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Crimson Text", serif;
+                font-size: 1.2rem;
+                line-height: 1.6;
+                overflow-x: hidden;
+                background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+                background-size: 400% 400%;
+                animation: gradientShift 15s ease infinite;
+
+            }
+
+            /* Animated Background */
+            .background {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -2;
+                background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+                background-size: 400% 400%;
+                animation: gradientShift 15s ease infinite;
+            }
+
+            .background::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-image:
+                    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+                animation: floatingShapes 20s linear infinite;
+            }
+
+            .background-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                background: rgba(255, 255, 255, 0.85);
+                backdrop-filter: blur(3px);
+            }
+
+            @keyframes gradientShift {
+                0% {
+                    background-position: 0% 50%;
+                }
+
+                50% {
+                    background-position: 100% 50%;
+                }
+
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+
+            @keyframes floatingShapes {
+
+                0%,
+                100% {
+                    transform: translateX(0) translateY(0) rotate(0deg);
+                }
+
+                33% {
+                    transform: translateX(30px) translateY(-30px) rotate(120deg);
+                }
+
+                66% {
+                    transform: translateX(-20px) translateY(20px) rotate(240deg);
+                }
+            }
+
+            .header.hero-cover {
+                width: 100vw;
+                height: 100vh;
+                flex-direction: column;
+                padding: 60px 80px;
+                background:
+                    radial-gradient(300px 300px at 18% 28%, #67d763 0%, rgba(191, 246, 233, 0.0) 80%),
+                    radial-gradient(400px 400px at 90% 26%, #c0ffd3 0%, rgba(255, 209, 226, 0.0) 85%),
+                    radial-gradient(350px 350px at 60% 84%, #f09fda 0%, rgba(205, 230, 255, 0.0) 75%),
+                    radial-gradient(300px 350px at 1% 98%, #b1f0f0 0%, rgba(205, 230, 255, 0.0) 75%),
+                    #ffffff;
+                box-shadow: 0 10px 36px rgba(57, 221, 221, 0.28);
+                backdrop-filter: blur(6px);
+                gap: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .header-inner {
+                height: auto;
+                display: grid;
+                grid-template-columns: 1.2fr 0.9fr;
+                gap: 48px;
+                align-items: center;
+            }
+
+            /* Left side */
+            .hero-year {
+                font-family: "Crimson Text", serif;
+                font-size: 1.2rem;
+                font-weight: 500;
+                letter-spacing: .18em;
+                color: #000000;
+                opacity: .7;
+                margin-bottom: 50px;
+            }
+
+            .hero-left {
+                width: fit-content;
+            }
+
+            .hero-title {
+                font-family: "Crimson Text", serif;
+                font-weight: 600;
+                font-style: normal;
+                font-size: clamp(40px, 6vw, 86px);
+                line-height: 1.05;
+                margin: 0 0 6px;
+                color: #0043d3;
+                text-transform: uppercase;
+            }
+
+            .hero-sub {
+                font-family: "Crimson Text", serif;
+                font-size: clamp(28px, 3.6vw, 46px);
+                font-style: italic;
+                font-weight: 700;
+                color: #027353;
+                margin: 0 0 24px;
+            }
+
+            .hero-quote {
+                margin: 14px 0 28px;
+                font-family: "Crimson Text", serif;
+                font-size: 1.4rem;
+                line-height: 1.7;
+                color: #444;
+            }
+
+            .hero-quote cite {
+                font-family: "Crimson Text", serif;
+                display: block;
+                font-style: italic;
+                color: #333;
+                margin-top: 6px;
+            }
+
+            .hero-right {
+                display: flex;
+                justify-content: center;
+            }
+
+            .hero-photo-card {
+                width: min(420px, 70%);
+                aspect-ratio: 3 / 4;
+                border-radius: 18px;
+                overflow: hidden;
+                box-shadow: 0 18px 45px rgba(0, 0, 0, .12);
+                background:
+                    linear-gradient(#e8f6ff, #dff2ff) padding-box,
+                    radial-gradient(70px 70px at 70% 18%, #ffffff 0 60%, transparent 61%) no-repeat,
+                    linear-gradient(to top, #08a262 34%, #77dba4 35% 45%, #e8f6ff 45%) no-repeat;
+                background-size: 100% 100%, 60% 24%, 100% 100%;
+                background-position: center, 60% 22%, center;
+            }
+
+            /* Responsive */
+            @media (max-width: 900px) {
+                .header-inner {
+                    grid-template-columns: 1fr;
+                    gap: 28px;
+                }
+
+                .hero-right {
+                    order: -1;
+                }
+            }
+
+            .nav-btn {
+                padding: 12px 22px;
+                background: linear-gradient(45deg, #5eb6ffb6, #9198e5);
+                color: white;
+                border: none;
+                border-radius: 20px;
+                cursor: pointer;
+                font-weight: 600;
+                font-family: 'Crimson Text', serif;
+                font-size: 1.3rem;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+                text-decoration: none;
+                display: inline-block;
+            }
+
+
+            .nav-btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(79, 172, 254, 0.4);
+            }
+
+            /* Sections */
+            .section {
+                background: transparent;
+                box-shadow: none;
+                backdrop-filter: none;
+                border-radius: 0;
+                padding: 40px 140px;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+            }
+
+            @keyframes slideUp {
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            .section h2 {
+                font-size: 3.8rem;
+                text-align: center;
+                font-family: 'Crimson Text', serif;
+                margin-bottom: 30px;
+                background: linear-gradient(45deg, #007f48);
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                position: relative;
+            }
+
+            .section h2::after {
+                content: '';
+                display: block;
+                width: 100px;
+                height: 4px;
+                background: linear-gradient(45deg, #74b9f7, #82eee5);
+                margin: 10px auto;
+                border-radius: 2px;
+            }
+
+            .section h2::before {
+                content: '⚛️';
+                position: absolute;
+                left: -60px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 2rem;
+                opacity: 0.3;
+            }
+
+            .about-quote {
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: radial-gradient(circle at center, #ffffff 0%, #cce6f9 100%);
+            }
+
+            .about-content p {
+                font-family: 'Crimson Text', serif;
+                font-size: 1.7rem;
+                line-height: 1.6;
+                color: #222;
+                text-align: center;
+                max-width: 600px;
+            }
+
+            .about {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 40px 100px;
+                text-align: center;
+                background: #fdfdfd;
+            }
+
+            .intro {
+                font-size: 1.7rem;
+                line-height: 1.8;
+                margin-bottom: 60px;
+                max-width: 1010px;
+                text-align: justify;
+                font-family: 'Crimson Text', serif;
+            }
+
+            .stats {
+                display: flex;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                gap: 90px;
+            }
+
+            .stat {
+                text-align: center;
+                width: 200px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .circle {
+                width: 170px;
+                height: 170px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.8rem;
+                font-weight: 600;
+                font-family: 'Crimson Text', serif;
+                color: #103191;
+                background: radial-gradient(circle, rgba(157, 226, 215, 0.8) 0%, rgba(230, 165, 193, 0) 70%);
+            }
+
+            .stat p {
+                font-size: 1.5rem;
+                color: #243d87;
+                line-height: 1.4;
+                font-family: 'Crimson Text', serif;
+            }
+
+            /* Awards Section */
+            .awards-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+                padding: 20px 15px;
+            }
+
+            /* 1. Xử lý cho màn hình Laptop HD (Dưới 1366px - fix vụ máy cùi) */
+            @media (max-width: 1366px) {
+
+                /* Fix Nav: Ép tất cả trên 1 dòng, không cho rớt */
+                .nav {
+                    gap: 4px;
+                    /* Thu hẹp khoảng cách các nút */
+                    flex-wrap: nowrap;
+                    /* Tuyệt đối không xuống dòng */
+                    justify-content: center;
+                }
+
+                .nav-btn {
+                    padding: 6px 8px;
+                    /* Giảm padding */
+                    font-size: 0.8rem;
+                    /* Giảm size chữ một chút */
+                    white-space: nowrap;
+                    /* Không cho chữ "Social Work" tách làm 2 dòng */
+                }
+
+                /* Fix Awards: Đảm bảo các card có độ cao bằng nhau */
+                .awards-container {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    /* Vẫn giữ 2 cột */
+                    align-items: stretch;
+                    /* Ép các card cao bằng nhau */
+                    gap: 20px;
+                }
+
+                .award-card {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                }
+
+                .award-content {
+                    flex-grow: 1;
+                    /* Đẩy phần ảnh xuống đáy để 2 bên cân bằng */
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+
+            /* 2. Xử lý cho màn hình Tablet/Ipad */
+            @media (max-width: 1024px) {
+                .awards-container {
+                    grid-template-columns: 1fr;
+                    /* Màn hình này nên về 1 cột để đọc Topic không bị quá hẹp */
+                    max-width: 700px;
+                    margin: 0 auto;
+                }
+
+                .nav {
+                    overflow-x: auto;
+                    /* Cho phép vuốt ngang menu nếu quá chật */
+                    justify-content: flex-start;
+                    padding: 10px 5px;
+                }
+            }
+
+            /* 3. Xử lý cho điện thoại */
+            @media (max-width: 600px) {
+                .awards-container {
+                    grid-template-columns: 1fr;
+                }
+
+                .award-media-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                    /* Ảnh gallery vẫn chia 3 cho gọn */
+                }
+            }
+
+            .award-card {
+                background: linear-gradient(to bottom, #d4e1fd73 0%, #ffffff 100%);
+                padding: 30px;
+                border-radius: 20px;
+                position: relative;
+                overflow: hidden;
+                transition: transform 0.3s ease;
+                color: #000;
+                display: grid;
+                grid-template-rows: auto 220px;
+                gap: 12px;
+            }
+
+            .award-card:hover {
+                transform: scale(1.02);
+            }
+
+            .award-card::before {
+                position: absolute;
+                top: -20px;
+                right: -20px;
+                font-size: 100px;
+                opacity: 0.1;
+            }
+
+            .award-content {
+                overflow: auto;
+                padding-right: 4px;
+                font-family: 'Crimson Text';
+            }
+
+            .award-media {
+                width: 100%;
+                height: 220px;
+                border-radius: 14px;
+                overflow: hidden;
+                border: 2px solid rgba(55, 172, 162, 0.45);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .award-media img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            #research {
+                align-items: stretch;
+                justify-content: flex-start;
+            }
+
+            /* Research Section */
+            .research-card {
+                background: linear-gradient(to bottom, #9de7c293 0%, #ffffff 100%);
+                padding: 30px;
+                border-radius: 20px;
+                margin: 20px 100px;
+                color: rgb(0, 0, 0);
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .progress-bar {
+                width: 100%;
+                height: 20px;
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 10px;
+                overflow: hidden;
+                margin: 15px 0;
+            }
+
+            .progress-fill {
+                height: 100%;
+                background: linear-gradient(45deg, #22db7ffa, #0ca85a);
+                width: 92%;
+                border-radius: 10px;
+                animation: fillProgress 2s ease-in-out;
+            }
+
+            @keyframes fillProgress {
+                from {
+                    width: 0;
+                }
+
+                to {
+                    width: 92%;
+                }
+            }
+
+            /* Leadership & Social Work */
+            .activity-card {
+                background: linear-gradient(135deg, #e3f2fd, #c7ffe3e6);
+                border: 1px solid rgba(123, 164, 230, 0.6);
+                border-radius: 18px;
+                padding: 24px;
+                background-clip: padding-box;
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+                transition: transform 0.25s ease, box-shadow 0.25s ease;
+                position: relative;
+                overflow: hidden;
+                color: #2c3e50;
+                max-width: 900px;
+                margin: 0 auto 40px auto;
+            }
+
+            .activity-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+            }
+
+            .activity-card h3 {
+                font-weight: 600;
+                color: #1a237e;
+                margin-bottom: 10px;
+            }
+
+            .activity-card p {
+                margin: 0 0 10px;
+                line-height: 1.6;
+            }
+
+            .card-content {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                padding: 15px 25px;
+            }
+
+            .card-content.reverse {
+                flex-direction: row-reverse;
+            }
+
+            .card-text {
+                flex: 1;
+            }
+
+            .card-image {
+                flex: 1;
+            }
+
+            /* Text */
+            .card-text {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #2c2c54;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            .card-image {
+                flex: 0 0 35%;
+                /* Giảm tỉ lệ ảnh xuống còn 35% chiều ngang */
+                max-height: 180px;
+                /* Giới hạn chiều cao tối đa của ảnh trên PC */
+                overflow: hidden;
+                border-radius: 12px;
+            }
+
+            /* Ảnh */
+            .card-image img {
+                width: 100%;
+                height: 180px;
+                /* Ép ảnh về chiều cao cố định thấp hơn */
+                object-fit: cover;
+                object-position: center 20%;
+            }
+
+            .see-more {
+                font-family: "Crimson Text", serif;
+                font-weight: 700;
+                font-size: 1.5em;
+                /* margin-top: 15px;
+                padding: 8px 20px; */
+                padding: 0;
+                border: none;
+                border-radius: 20px;
+                background: transparent;
+                color: #152cac;
+                cursor: pointer;
+                transition: background 0.3s;
+            }
+
+            /* .see-more:hover {
+                background: #2740cd;
+            } */
+            .see-more-btn {
+                background: rgba(21, 44, 172, 0.05);
+                border: 1px solid #152cac;
+                padding: 5px 15px;
+                border-radius: 20px;
+
+                font-family: "Crimson Text", serif;
+                font-weight: 600;
+                font-size: 0.9em;
+                color: #152cac;
+                cursor: pointer;
+
+                transition: all 0.3s ease;
+                display: inline-block;
+                outline: none;
+            }
+
+            .see-more-btn:hover {
+                background: #152cac;
+                color: #ffffff;
+                box-shadow: 0 4px 8px rgba(21, 44, 172, 0.2);
+            }
+
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.6);
+                justify-content: center;
+                align-items: center;
+            }
+
+            .modal-content {
+                background: #fff;
+                border-radius: 15px;
+                padding: 30px 40px;
+                /* Tăng padding trên dưới để thoáng hơn */
+                width: 80%;
+                max-width: 1400px;
+                max-height: 92vh;
+                overflow-y: auto;
+                position: relative;
+                /* Để nút close không bị đè */
+            }
+
+            .modal-content section {
+                margin: 20px 0;
+                padding: 0 0 20px 0;
+                /* Thêm padding dưới mỗi section */
+            }
+
+            .modal-content section:last-child {
+                margin-bottom: 40px;
+                /* Tạo khoảng trống dư ra sau tấm hình cuối cùng */
+            }
+
+            .modal-content h3.modal-heading {
+                margin-bottom: 0px;
+            }
+
+            .modal-content p {
+                margin: 0 0 5px;
+            }
+
+            .close {
+                position: absolute;
+                top: 20px;
+                right: 25px;
+                font-size: 32px;
+                font-weight: bold;
+                color: #ffffff;
+                cursor: pointer;
+            }
+
+            .modal-title {
+                font-family: "Crimson Text", serif;
+                font-size: clamp(28px, 3.6vw, 46px);
+                font-style: italic;
+                text-align: center;
+                font-weight: 700;
+                font-size: 2rem;
+                margin-bottom: 10px;
+                line-height: 1.3;
+                color: #103c7b;
+            }
+
+            .modal-content p {
+                text-align: left;
+                margin: 0 0 1em;
+                gap: 10px;
+            }
+
+            .situation-text {
+                max-width: 600px;
+                text-align: justify;
+                margin: 0;
+            }
+
+            .modal-heading {
+                color: #b23b4c;
+                margin-top: 40px;
+                margin-bottom: 10px;
+                font-size: 1.3rem;
+                font-weight: bold;
+            }
+
+            .modal-flex {
+                display: flex;
+                gap: 110px;
+                align-items: flex-start;
+            }
+
+            .modal-flex img {
+                width: 410px;
+                border-radius: 8px;
+            }
+
+            .modal-gallery {
+                display: flex;
+                gap: 15px;
+                margin-top: 15px;
+                flex-wrap: wrap;
+                /* Để tự xuống hàng nếu màn hình nhỏ, tránh bị cắt */
+            }
+
+            .modal-gallery img {
+                flex: 1;
+                min-width: 250px;
+                /* Đảm bảo ảnh không bị quá nhỏ */
+                height: auto;
+                border-radius: 8px;
+                object-fit: cover;
+            }
+
+
+
+            /* Social work Section */
+            #social-work h2 {
+                text-align: center;
+                margin-bottom: 40px;
+                font-family: "Crimson Text", serif;
+                font-size: 2rem;
+                color: #1a237e;
+            }
+
+            .social-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 0px;
+            }
+
+            .social-item {
+                display: flex;
+                gap: 30px;
+                align-items: stretch;
+                /* Để card và gallery cao bằng nhau */
+                flex-wrap: wrap;
+                margin-bottom: 40px;
+            }
+
+            .social-item:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+
+            .social-gallery {
+                flex: 0 0 450px;
+                min-width: 300px;
+                height: 400px;
+                position: relative;
+                border-radius: 14px;
+                overflow: hidden;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .social-gallery img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: none;
+                cursor: zoom-in;
+            }
+
+            .social-gallery img:first-child {
+                display: block;
+            }
+
+            .gallery-prev,
+            .gallery-next {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0, 0, 0, 0.4);
+                color: #fff;
+                border: none;
+                padding: 8px 12px;
+                border-radius: 50%;
+                cursor: pointer;
+                font-size: 18px;
+            }
+
+            .gallery-prev {
+                left: 10px;
+            }
+
+            .gallery-next {
+                right: 10px;
+            }
+
+            .social-card {
+                flex: 1;
+                min-width: 300px;
+                background: linear-gradient(90deg, #e3f2fd 0%, #ffffff 100%);
+                border-radius: 14px;
+                padding: 28px;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                /* Bỏ height cố định để tự co dãn theo nội dung */
+            }
+
+            .social-card:hover {
+                cursor: pointer;
+                transform: scale(1.05);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+            }
+
+            .year-badge {
+                display: inline-block;
+                padding: 6px 16px;
+                background: linear-gradient(135deg, #004883, #5c6bc0);
+                color: #fff;
+                font-weight: 600;
+                font-size: 0.9rem;
+                border-radius: 999px;
+                margin-bottom: 12px;
+            }
+
+            .social-card h3 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: #103c7b;
+                margin: 0 0 12px;
+            }
+
+            .social-card .social-desc {
+                font-size: 1.2rem;
+                line-height: 1.5;
+                color: #37474f;
+            }
+
+            @media (max-width: 768px) {
+
+                body {
+                    overflow-x: hidden !important;
+                    width: 100% !important;
+                    position: relative !important;
+                }
+
+                .social-gallery {
+                    flex: 1 1 100%;
+                    height: 250px;
+                    /* Trên mobile thì cần set chiều cao cố định */
+                }
+
+                .awards-container {
+                    grid-template-columns: 1fr;
+                }
+
+                .award-card:nth-child(n) {
+                    grid-column: span 1;
+                }
+
+                .hero-cover {
+                    height: auto !important;
+                    min-height: 100vh;
+                    padding-top: 40px;
+                    padding-bottom: 120px;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .header-inner {
+                    flex-direction: column-reverse;
+                    align-items: center;
+                    text-align: center;
+                    gap: 30px;
+                    padding: 0 20px;
+                }
+
+                /* 3. Fix lỗi ảnh bị mất đầu và kích thước quá lớn */
+                .hero-right .hero-photo-card {
+                    width: 280px !important;
+                    /* Thu nhỏ ảnh trên mobile */
+                    height: 350px !important;
+                    margin: 0 auto;
+                }
+
+                .hero-right .hero-photo-card img {
+                    object-position: 65% center
+                }
+
+                /* 4. Sửa các nút Navigation bị chồng lên nhau */
+                .nav {
+                    position: relative;
+                    /* Không để cố định nếu nó gây đè */
+                    bottom: auto;
+                    left: auto;
+                    transform: none;
+                    display: flex;
+                    flex-wrap: wrap;
+                    /* Cho phép các nút xuống dòng */
+                    justify-content: center;
+                    gap: 10px;
+                    padding: 10px;
+                    width: 100%;
+                    margin-top: 40px;
+                }
+
+                .nav-btn {
+                    padding: 8px 15px;
+                    font-size: 0.9rem;
+                    /* Thu nhỏ chữ nút bấm một chút */
+                }
+
+                /* 5. Căn chỉnh chữ Title cho nhỏ lại vừa màn hình điện thoại */
+                .hero-title {
+                    font-size: 2.5rem !important;
+                    line-height: 1.2;
+                }
+
+                .header h1 {
+                    font-size: 2rem;
+                }
+
+                .section {
+                    margin: 0 10px 40px;
+                    padding: 20px;
+                }
+
+                .education-grid,
+                .awards-container {
+                    grid-template-columns: 1fr;
+                }
+
+                #education h2 {
+                    text-align: center !important;
+                    margin-bottom: 30px !important;
+                }
+
+                /* Hiển thị lưới 2x2 */
+                #education .stats {
+                    display: grid !important;
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    /* Chia 2 cột đều nhau */
+                    gap: 20px !important;
+                    justify-items: center !important;
+                    align-items: start !important;
+                    padding: 0 10px !important;
+                }
+
+                /* Căn giữa nội dung trong từng item */
+                .stat {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    align-items: center !important;
+                    text-align: center !important;
+                    width: 100% !important;
+                }
+
+                /* Giữ kích thước vòng tròn ổn định */
+                .stat .circle {
+                    width: 80px !important;
+                    height: 80px !important;
+                    font-size: 1.2rem !important;
+                    margin: 0 auto 10px auto !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                }
+
+                /* Chỉnh chữ dưới vòng tròn */
+                .stat p {
+                    font-size: 0.9rem !important;
+                    line-height: 1.3 !important;
+                    margin: 0 !important;
+                    word-wrap: break-word !important;
+                }
+
+                #awards h2 {
+                    font-size: 2rem !important;
+                    text-align: center !important;
+                    margin-bottom: 20px !important;
+                }
+
+                /* 2. Container: Chuyển sang 1 cột duy nhất */
+                .awards-container {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    gap: 25px !important;
+                    padding: 0 10px !important;
+                }
+
+                /* 3. Card giải thưởng: Tự động dãn chiều cao theo nội dung */
+                .award-card {
+                    width: 100% !important;
+                    min-height: auto !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    padding: 15px !important;
+                    background: rgba(255, 255, 255, 0.1) !important;
+                    border-radius: 12px !important;
+                }
+
+                /* 4. Font chữ trong card: Thu nhỏ lại để không bị tràn */
+                .award-card h3 {
+                    font-size: 1.1rem !important;
+                    line-height: 1.3 !important;
+                    margin: 10px 0 !important;
+                }
+
+                .award-card p {
+                    font-size: 0.9rem !important;
+                    line-height: 1.4 !important;
+                }
+
+                /* Nút huy chương (First Prize, Gold Medal...) */
+                .see-more {
+                    font-size: 0.75rem !important;
+                    padding: 4px 10px !important;
+                    margin-bottom: 5px !important;
+                }
+
+                /* 5. Vùng chứa ảnh (Grid 3 ảnh hoặc 1 ảnh đơn) */
+                .award-media-grid,
+                .award-media-single {
+                    width: 100% !important;
+                    margin-top: 15px !important;
+                }
+
+                .award-media-grid {
+                    display: grid !important;
+                    grid-template-columns: repeat(3, 1fr) !important;
+                    gap: 8px !important;
+                }
+
+                .award-media-grid img,
+                .award-media-single img {
+                    width: 100% !important;
+                    height: 120px !important;
+                    /* Cố định chiều cao ảnh trên mobile để gọn gàng */
+                    object-fit: cover !important;
+                    border-radius: 8px !important;
+                }
+
+                /* 6. Nút "See more" chi tiết */
+                .see-more-btn {
+                    width: 100% !important;
+                    margin-top: 10px !important;
+                    padding: 8px !important;
+                    font-size: 0.9rem !important;
+                }
+
+                .detail-modal-overlay {
+                    display: none;
+                    /* JS sẽ chuyển thành flex */
+                    position: fixed !important;
+                    /* Luôn đi theo màn hình người dùng */
+                    top: 0 !important;
+                    left: 0 !important;
+                    width: 100vw !important;
+                    /* Đảm bảo không rộng hơn màn hình */
+                    height: 100vh !important;
+                    background: rgba(0, 0, 0, 0.8) !important;
+                    z-index: 99999 !important;
+                    justify-content: center !important;
+                    align-items: center !important;
+                    margin: 0 !important;
+                    padding: 10px !important;
+                    box-sizing: border-box !important;
+                }
+
+                .detail-modal-content {
+                    position: relative !important;
+                    width: 100% !important;
+                    max-width: 95vw !important;
+                    /* Không bao giờ vượt quá chiều ngang mobile */
+                    max-height: 85vh !important;
+                    /* Chiều cao tối đa 85% màn hình */
+                    background: #fff !important;
+                    border-radius: 15px !important;
+                    padding: 30px 15px 20px 15px !important;
+                    margin: 0 auto !important;
+                    left: auto !important;
+                    right: auto !important;
+                    transform: none !important;
+                    /* Bỏ transform nếu có */
+                    overflow-y: auto !important;
+                    /* Cho phép cuộn nội dung bên trong */
+                    -webkit-overflow-scrolling: touch;
+                }
+
+                #modalBody {
+                    width: 100% !important;
+                    display: block !important;
+                }
+
+                /* Tùy chỉnh nội dung bên trong modalBody được render từ JS */
+                #modalBody h2 {
+                    font-size: 1.2rem !important;
+                    text-align: center !important;
+                    /* Tiêu đề căn giữa cho cân đối */
+                    padding-right: 20px !important;
+                    margin-top: 10px !important;
+                }
+
+                .modal-inner-text {
+                    width: 100% !important;
+                    font-size: 0.95rem !important;
+                    word-wrap: break-word !important;
+                    /* Ngắt chữ nếu quá dài */
+                    overflow-wrap: break-word !important;
+                }
+
+                .modal-inner-text ul {
+                    padding-left: 20px !important;
+                    margin-right: 0 !important;
+                }
+
+                .close-detail {
+                    position: absolute !important;
+                    top: 5px !important;
+                    right: 10px !important;
+                    font-size: 30px !important;
+                    z-index: 10001 !important;
+                    color: #333 !important;
+                }
+
+                /* Lưới ảnh chi tiết bên trong pop-up */
+                .modal-image-grid {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    align-items: center !important;
+                    gap: 10px !important;
+                }
+
+                .modal-image-grid img,
+                #modalBody img {
+                    max-width: 100% !important;
+                    height: auto !important;
+                    display: block !important;
+                    margin: 10px auto !important;
+                }
+
+                /* 2. Pop-up xem ảnh phóng to */
+                .img-popup-overlay {
+                    background: rgba(0, 0, 0, 0.95) !important;
+                }
+
+                #imgFull {
+                    width: 95% !important;
+                    max-height: 70vh !important;
+                    object-fit: contain !important;
+                }
+
+                /* 3. Nút đóng (X) cho cả 2 loại modal */
+                .close-btn,
+                .close-detail {
+                    top: 10px !important;
+                    right: 15px !important;
+                    font-size: 35px !important;
+                    color: #333 !important;
+                    /* Màu đậm để dễ thấy trên nền trắng của modal văn bản */
+                    width: 40px;
+                    height: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .close-btn {
+                    color: #fff !important;
+                    /* Riêng nút đóng ảnh thì để màu trắng */
+                }
+
+                /* Điều chỉnh danh sách ul li bên trong nội dung chi tiết */
+                #modalBody ul {
+                    padding-left: 18px !important;
+                    margin-top: 10px !important;
+                }
+
+                #modalBody li {
+                    margin-bottom: 10px !important;
+                }
+
+                /* =========================LEADERSHIP===================== */
+                .activity-card {
+                    margin-bottom: 30px;
+                }
+
+                .card-content,
+                .card-content.reverse {
+                    flex-direction: column !important;
+                    /* Ép xoay dọc trên mobile */
+                    text-align: left;
+                    gap: 20px;
+                }
+
+                .card-image {
+                    width: 100% !important;
+                    order: -1;
+                    /* Đưa ảnh lên trên chữ khi ở mobile */
+                }
+
+                .card-text {
+                    width: 100% !important;
+                    padding: 0 10px;
+                }
+
+                .card-image img {
+                    height: 200px;
+                    /* Thu nhỏ độ cao ảnh cho đỡ tốn diện tích */
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                .modal-content {
+                    width: 95% !important;
+                    padding: 15px !important;
+                    margin: 5% auto;
+                }
+
+                .modal-flex {
+                    flex-direction: column !important;
+                }
+
+                .modal-flex div {
+                    width: 100% !important;
+                    justify-content: center !important;
+                }
+
+                .modal-flex img {
+                    width: 100% !important;
+                    margin-top: 15px;
+                }
+
+                .modal-title {
+                    font-size: 1.2rem !important;
+                }
+            }
+
+            /* Modal */
+            .modal {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.6);
+                z-index: 1000;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .modal-content2 {
+                background: #fff;
+                padding: 30px;
+                border-radius: 16px;
+                max-width: 600px;
+                width: 90%;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+                text-align: left;
+            }
+
+            /* .close {
+                float: right;
+                font-size: 1.5rem;
+                cursor: pointer;
+            } */
+
+            /* Lớp nền mờ phủ toàn màn hình */
+            .img-popup-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(0, 0, 0, 0.85);
+                /* Nền đen mờ xịn */
+                z-index: 99999;
+                /* Đảm bảo nổi lên trên tất cả mọi thứ */
+                justify-content: center;
+                align-items: center;
+                cursor: zoom-out;
+            }
+
+            /* Ảnh phóng to */
+            .img-popup-overlay img {
+                max-width: 90%;
+                max-height: 90%;
+                object-fit: contain;
+                border: 4px solid white;
+                border-radius: 4px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+                animation: zoomIn 0.3s ease;
+                /* Hiệu ứng bay từ trong ra */
+            }
+
+            @keyframes zoomIn {
+                from {
+                    transform: scale(0.7);
+                    opacity: 0;
+                }
+
+                to {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 40px;
+                color: white;
+                font-size: 50px;
+                cursor: pointer;
+            }
+
+            /* Talents Section */
+            #talents.section {
+                padding: 60px 20px;
+                background: #f8faff;
+                text-align: center;
+            }
+
+            /* Container chính */
+            .talents-container {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                width: 90%;
+                max-width: 1100px;
+                margin: 0 auto;
+            }
+
+            /* Style chung cho Card (Giống Award Card) */
+            .talent-card {
+                background: rgba(255, 255, 255, 0.15) !important;
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                border-radius: 25px;
+                padding: 35px;
+                overflow: hidden;
+                color: #000;
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                /* Giúp hiệu ứng mượt hơn */
+                cursor: pointer;
+            }
+
+            .talent-card:hover {
+                /* Kích hoạt animation cardFloat bạn đã đưa */
+                animation: cardFloat 3s ease-in-out infinite;
+
+                /* Thêm hiệu ứng đổ bóng và viền sáng để trông "xịn" hơn khi float */
+                box-shadow: 0 15px 45px rgba(21, 44, 172, 0.2);
+                border: 1px solid rgba(255, 255, 255, 0.6);
+                z-index: 10;
+            }
+
+            .talent-info h3 {
+                font-family: 'Crimson Text', serif;
+                /* Font có chân cho tiêu đề chính */
+                font-size: 1.8rem;
+                color: #152cac;
+                margin-top: 5px;
+                margin-bottom: 15px;
+                font-weight: bold;
+            }
+
+            /* Nhãn nhỏ phía trên tiêu đề */
+            .talent-tag {
+                display: inline-block;
+                padding: 5px 15px;
+
+                /* Màu nền xanh đồng bộ với nút See More của bạn */
+                background: linear-gradient(135deg, #152cac 0%, #0b1a7a 100%);
+                color: #ffffff !important;
+
+                /* Font chữ: Ưu tiên font không chân (Sans-serif) để hiện đại */
+                font-family: 'Montserrat', sans-serif, Arial;
+                font-size: 0.7rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                /* Khoảng cách chữ rộng ra cho sang */
+
+                border-radius: 50px;
+                margin-bottom: 15px;
+                box-shadow: 0 4px 10px rgba(21, 44, 172, 0.2);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            /* Card Baking: Chia 2 cột trên Desktop */
+            .baking-card {
+                display: grid !important;
+                grid-template-columns: 1.2fr 1fr;
+                gap: 40px;
+                align-items: center;
+            }
+
+            .talent-media-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .talent-media-grid img {
+                width: 100%;
+                height: 140px;
+                object-fit: cover;
+                border-radius: 15px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                object-position: center;
+                transition: transform 0.3s ease;
+            }
+
+            /* Hàng dưới: Chia đôi Dancing & Acting */
+            .talents-sub-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+
+            .talent-media-single {
+                width: 100%;
+                height: 280px;
+                object-fit: cover;
+                object-position: center;
+                border-radius: 15px;
+            }
+
+            .talent-media-single img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+                object-position: center 60%;
+                border-radius: 15px;
+                transition: transform 0.3s ease;
+            }
+
+            .talent-media-grid img:hover,
+            .talent-media-single img:hover {
+                transform: scale(1.05);
+            }
+
+            /* Responsive cho Mobile */
+            @media (max-width: 768px) {
+
+                .baking-card,
+                .talents-sub-grid {
+                    grid-template-columns: 1fr !important;
+                }
+
+                .talent-card {
+                    padding: 25px;
+                }
+
+                .talent-media-grid {
+                    grid-template-columns: repeat(4, 1fr);
+                    /* 4 ảnh nhỏ nằm ngang trên mobile */
+                }
+
+                .talent-media-grid img {
+                    height: 60px;
+                }
+
+                .talent-media-single img {
+                    height: 200px;
+                }
+            }
+
+            /* Contact Buttons */
+            .contact-buttons {
+                display: flex;
+                justify-content: center;
+                gap: 25px;
+                flex-wrap: wrap;
+                margin-top: 30px;
+            }
+
+            .contact-btn {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 15px 30px;
+                font-size: 1.1rem;
+                font-weight: 600;
+                text-decoration: none;
+                color: #152cac;
+                /* Màu xanh thương hiệu của bạn */
+                background: #ffffff;
+                border: 2px solid #152cac;
+                border-radius: 50px;
+                /* Bo tròn hoàn toàn kiểu viên thuốc */
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: 0 4px 15px rgba(21, 44, 172, 0.1);
+            }
+
+            .contact-btn:hover {
+                background: #152cac;
+                color: #ffffff;
+                transform: translateY(-5px);
+                /* Bay lên nhẹ khi di chuột */
+                box-shadow: 0 8px 25px rgba(21, 44, 172, 0.3);
+            }
+
+            /* Thêm hiệu ứng riêng cho nút CV để làm nổi bật */
+            .contact-btn[href*="docs.google"] {
+                background: #152cac;
+                color: white;
+            }
+
+            .contact-btn[href*="docs.google"]:hover {
+                background: #b23b4c;
+                /* Chuyển sang màu đỏ nhấn của bạn khi hover */
+                border-color: #b23b4c;
+            }
+
+            /* Floating particles */
+            .particle {
+                position: fixed;
+                width: 4px;
+                height: 4px;
+                background: rgba(79, 172, 254, 0.8);
+                border-radius: 50%;
+                pointer-events: none;
+                animation: floatUp 8s linear infinite;
+                z-index: -1;
+            }
+
+            .molecule-particle {
+                position: fixed;
+                width: 8px;
+                height: 8px;
+                background: radial-gradient(circle, #4facfe, #00f2fe);
+                border-radius: 50%;
+                pointer-events: none;
+                animation: moleculeFloat 12s linear infinite;
+                z-index: -1;
+            }
+
+            .molecule-particle::before {
+                content: '';
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                background: radial-gradient(circle, #667eea, #764ba2);
+                border-radius: 50%;
+                top: -10px;
+                left: 8px;
+            }
+
+            .molecule-particle::after {
+                content: '';
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                background: radial-gradient(circle, #00f2fe, #4facfe);
+                border-radius: 50%;
+                top: 5px;
+                left: -8px;
+            }
+
+            @keyframes moleculeFloat {
+                0% {
+                    transform: translateY(100vh) translateX(0) rotate(0deg);
+                    opacity: 0;
+                }
+
+                10% {
+                    opacity: 1;
+                }
+
+                90% {
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translateY(-10vh) translateX(150px) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+
+            @keyframes floatUp {
+                0% {
+                    transform: translateY(100vh) translateX(0);
+                    opacity: 0;
+                }
+
+                10% {
+                    opacity: 1;
+                }
+
+                90% {
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translateY(-10vh) translateX(100px);
+                    opacity: 0;
+                }
+            }
+
+            /* Image Modal Styles */
+            .img-modal {
+                position: fixed;
+                inset: 0;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                background: rgba(0, 0, 0, .7);
+                z-index: 9999;
+                padding: 24px;
+            }
+
+            .img-modal.open {
+                display: flex;
+            }
+
+            .img-modal__dialog img {
+                max-width: 95vw;
+                max-height: 95vh;
+                width: auto;
+                height: auto;
+                display: block;
+                border-radius: 10px;
+                box-shadow: 0 12px 40px rgba(0, 0, 0, .45);
+            }
+
+            .img-modal__close {
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                background: rgba(255, 255, 255, .9);
+                border: none;
+                border-radius: 999px;
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+                font-size: 20px;
+                line-height: 40px;
+            }
+
+            /* Image Modal Styles */
+            .detail-modal-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.85);
+                z-index: 100000;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .detail-modal-content {
+                background: white;
+                padding: 50px;
+                /* Tăng khoảng cách lề trong cho sang */
+                border-radius: 15px;
+                width: 95%;
+                /* Chiếm 95% chiều rộng màn hình */
+                max-width: 1200px;
+                /* Độ rộng tối đa rất lớn */
+                position: relative;
+                max-height: 92vh;
+                /* Chiếm gần hết chiều cao màn hình */
+                overflow-y: auto;
+                box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+            }
+
+            .close-detail {
+                position: absolute;
+                top: 20px;
+                right: 25px;
+                font-size: 45px;
+                color: #333;
+                line-height: 1;
+                cursor: pointer;
+                transition: color 0.2s;
+            }
+
+            .close-detail:hover {
+                color: #152cac;
+            }
+
+            /* Điều chỉnh ảnh trong pop-up to và rõ hơn */
+            .modal-inner-text img {
+                width: 100%;
+                max-height: 600px;
+                /* Tăng chiều cao tối đa của ảnh */
+                object-fit: contain;
+                margin: 25px 0;
+                border-radius: 10px;
+                border: 1px solid #eee;
+            }
+
+            /* Chỉnh nội dung text cho khớp với size lớn */
+            .modal-inner-text {
+                font-size: 1.15em;
+                line-height: 1.7;
+                color: #222;
+            }
+
+            .modal-inner-text h4 {
+                font-size: 1.4em;
+                border-bottom: 2px solid #f0f0f0;
+                padding-bottom: 5px;
+                margin-top: 25px;
+            }
+
+            .scroll-top {
+                position: fixed;
+                right: 30px;
+                bottom: 30px;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                border: none;
+                background: white;
+                color: rgb(0, 89, 4);
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 10px 30px rgba(4, 191, 138, 0.3);
+                cursor: pointer;
+                transform: translateY(100px) scale(0);
+                opacity: 100;
+                transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                z-index: 9999;
+            }
+
+            .scroll-top.visible {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                animation: bounce 2s infinite;
+            }
+
+            @keyframes bounce {
+
+                0%,
+                20%,
+                50%,
+                80%,
+                100% {
+                    transform: translateY(0) scale(1);
+                }
+
+                40% {
+                    transform: translateY(-10px) scale(1.1);
+                }
+
+                60% {
+                    transform: translateY(-5px) scale(1.05);
+                }
+            }
+
+            .scroll-top:hover {
+                transform: translateY(-10px) scale(1.2);
+                background: linear-gradient(135deg, var(--green-1), var(--blue-2));
+                box-shadow: 0 20px 40px rgba(4, 191, 138, 0.5);
+            }
+
+            .scroll-top svg {
+                display: block;
+                transition: transform 0.3s ease;
+            }
+
+            .scroll-top:hover svg {
+                transform: translateY(-2px);
+            }
+
+            @media (max-width:480px) {
+                .scroll-top {
+                    right: 12px;
+                    bottom: 16px;
+                    width: 44px;
+                    height: 44px;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+
+                .scroll-top,
+                .scroll-top.visible {
+                    transition: none;
+                    transform: none;
+                }
+            }
+
+            :root {
+                --primary-bg: #F2F9C2;
+                /* Xanh rất nhạt làm nền chính, chuyên nghiệp */
+                --accent-pink: #F299C2;
+                /* Hồng nhạt cho các điểm nhấn */
+                --green-1: #04BF8A;
+                /* Xanh lục sáng */
+                --green-2: #03A678;
+                /* Xanh lục trung bình */
+                --green-3: #027353;
+                /* Xanh lục đậm */
+                --green-4: #014029;
+                /* Xanh lục rất đậm */
+            }
+
+            .particle {
+                position: fixed;
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: -1;
+                animation: particleFloat 8s linear infinite;
+            }
+
+            .particle.small {
+                width: 4px;
+                height: 4px;
+                background: rgba(4, 191, 138, 0.6);
+            }
+
+            .particle.medium {
+                width: 8px;
+                height: 8px;
+                background: radial-gradient(circle, var(--blue-1), var(--green-1));
+            }
+
+            .particle.large {
+                width: 12px;
+                height: 12px;
+                background: linear-gradient(45deg, var(--green-2), var(--blue-2));
+            }
+
+            @keyframes particleFloat {
+                0% {
+                    transform: translateY(100vh) translateX(0) rotate(0deg) scale(0);
+                    opacity: 0;
+                }
+
+                10% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+
+                90% {
+                    opacity: 1;
+                }
+
+                100% {
+                    transform: translateY(-10vh) translateX(100px) rotate(360deg) scale(0);
+                    opacity: 0;
+                }
+            }
+
+            .awards-container {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                /* Chia thành 6 cột nhỏ để dễ quản lý tỉ lệ */
+                gap: 20px;
+                padding: 20px;
+            }
+
+            /* 2 cuộc thi đầu tiên: mỗi cái chiếm 3 cột (tức là 1/2 hàng) */
+            .award-card:nth-child(1),
+            .award-card:nth-child(2) {
+                grid-column: span 3;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            /* Các cuộc thi sau: mỗi cái chiếm 2 cột (tức là 1/3 hàng) */
+            .award-card:nth-child(n+3) {
+                grid-column: span 2;
+                padding: 20px;
+                /* Tăng lên chút cho thoáng */
+                border: 1px solid #eee;
+                border-radius: 8px;
+                /* Bo góc nhẹ cho card đồng bộ với ảnh */
+                background-color: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: 空间-between;
+                /* Đẩy ảnh xuống dưới cùng nếu chữ ít */
+            }
+
+
+            /* Ảnh của nhóm 3 cái (Giữ hình vuông) */
+            .award-media-grid img {
+                width: 32%;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+                border-radius: 4px;
+                border: 1px solid #ddd;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                transition: transform 0.2s ease;
+                cursor: zoom-in;
+            }
+
+            .award-media-single {
+                margin-top: auto;
+                width: 100%;
+                height: 250px;
+                /* Khóa chiều cao khung chứa ảnh cho tất cả các card nhỏ */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #f9f9f9;
+                /* Nền xám nhẹ để lấp chỗ trống nếu ảnh không full khung */
+                border-radius: 4px;
+                overflow: hidden;
+                border: 1px solid #ddd;
+                cursor: zoom-in;
+            }
+
+            .award-media-single img {
+                max-width: 100%;
+                max-height: 100%;
+                /* Ảnh sẽ tự co dãn để luôn nằm gọn trong 250px chiều cao */
+                width: auto;
+                height: auto;
+                object-fit: contain;
+                /* Giữ nguyên tỉ lệ, không mất góc, không méo */
+                transition: transform 0.2s ease;
+            }
+
+            .award-media-grid img,
+            .award-media-single img {
+                will-change: transform;
+                image-rendering: -webkit-optimize-contrast;
+            }
+
+            /* Hiệu ứng hover cho cả hai */
+            .award-media-grid img:hover,
+            .award-media-single img:hover {
+                transform: scale(1.02);
+                border-color: #152cac;
+            }
+
+            .portfolio-link {
+                display: inline-block;
+                padding: 8px 15px;
+                background-color: #152cac;
+                color: white !important;
+                text-decoration: none;
+                border-radius: 5px;
+                font-size: 0.9em;
+                font-weight: bold;
+                transition: background 0.3s;
+            }
+
+            .portfolio-link:hover {
+                background-color: #0d1b6e;
+                /* Màu đậm hơn khi di chuột */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+
+            @keyframes cardFloat {
+
+                0%,
+                100% {
+                    transform: translateY(0px) scale(1.03);
+                }
+
+                50% {
+                    transform: translateY(-10px) scale(1.03);
+                }
+            }
+
+            /* Style chung cho nút CV đặc biệt */
+            .cv-special {
+                background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%) !important;
+                /* Màu nổi bật */
+                /* Hoặc dùng tông xanh Gold nếu muốn sang trọng: */
+                background: linear-gradient(135deg, #152cac 0%, #4facfe 100%) !important;
+
+                color: white !important;
+                border: 2px solid rgba(255, 255, 255, 0.4) !important;
+                box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+                transform: scale(1.1);
+                /* Cho nút to hơn một chút */
+                position: relative;
+                overflow: hidden;
+            }
+
+            /* Hiệu ứng tia sáng chạy ngang nút (Shine effect) */
+            .cv-special::after {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -60%;
+                width: 20%;
+                height: 200%;
+                background: rgba(255, 255, 255, 0.4);
+                transform: rotate(30deg);
+                transition: none;
+                animation: shine 3s infinite;
+            }
+
+            @keyframes shine {
+                0% {
+                    left: -60%;
+                }
+
+                20% {
+                    left: 120%;
+                }
+
+                100% {
+                    left: 120%;
+                }
+            }
+
+            /* Khi Hover vào nút CV */
+            .cv-special:hover {
+                transform: scale(1.15) translateY(-5px) !important;
+                box-shadow: 0 10px 25px rgba(21, 44, 172, 0.5) !important;
+                background: linear-gradient(135deg, #4facfe 0%, #152cac 100%) !important;
+            }
+
+            /* Đảm bảo icon PDF không bị đỏ */
+            .cv-special i {
+                color: white !important;
+                animation: pulse 2s infinite;
+                /* Hiệu ứng đập nhẹ cho icon */
+            }
+
+            @keyframes pulse {
+                0% {
+                    transform: scale(1);
+                }
+
+                50% {
+                    transform: scale(1.2);
+                }
+
+                100% {
+                    transform: scale(1);
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="background"></div>
+        <div class="background-overlay"></div>
+
+        <header class="header hero-cover">
+            <div class="header-inner">
+                <!-- LEFT -->
+                <div class="hero-left">
+                    <div class="hero-year">✢ 2025 ✢</div>
+                    <h1 class="hero-title">PHAM HA NGOC</h1>
+                    <h2 class="hero-sub">Portfolio</h2>
+                    <blockquote class="hero-quote">
+                        “Education is the most powerful weapon you can use to change the world.”
+                        <cite>— Nelson Mandela</cite>
+                    </blockquote>
+                </div>
+
+                <!-- RIGHT -->
+                <div class="hero-right">
+                    <div class="hero-photo-card"
+                        style="width: 400px; height: 500px; border-radius: 18px; overflow: hidden; box-shadow: 0 18px 45px rgba(0,0,0,.12);">
+                        <img src="assets/main.jpg" alt="Cover"
+                            style="width: 100%; height: 100%; object-fit: cover; display: block; object-position: 65% center;" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- NAVIGATION BUTTONS ở cuối header -->
+            <nav class="nav">
+                <a href="#aboutme" class="nav-btn">About Me</a>
+                <a href="#education" class="nav-btn">Education</a>
+                <a href="#awards" class="nav-btn">Awards</a>
+                <a href="#research" class="nav-btn">Research</a>
+                <a href="#leadership" class="nav-btn">Leadership</a>
+                <a href="#social" class="nav-btn">Social Work</a>
+                <a href="#talents" class="nav-btn">Talents</a>
+                <a href="#contact" class="nav-btn">Contact</a>
+            </nav>
+        </header>
+
+        <button id="scrollTopBtn" class="scroll-top" aria-label="Cuộn lên đầu trang" title="Lên đầu trang">
+            <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 4l-8 8h6v8h4v-8h6z" fill="currentColor" />
+            </svg>
+        </button>
+
+        <!-- About me -->
+        <section class="section" id="aboutme">
+            <h2>ABOUT ME</h2>
+            <p class="intro">
+                Hi! I am Pham Ha Ngoc, a Chemistry-major at Hanoi - Amsterdam High School for the Gifted.
+                I regard myself as a curious and determined girl who not only excels academically at school but is also
+                eager to explore the world of
+                chemistry beyond the classroom.
+            </p>
+
+            <!-- Education -->
+        </section>
+        <section class="section" id="education">
+            <h2>EDUCATION</h2>
+            <div class="stats">
+                <div class="stat">
+                    <div class="circle">9.5</div>
+                    <p>Grade 10 GPA</p>
+                </div>
+                <div class="stat">
+                    <div class="circle">9.6</div>
+                    <p>Grade 11 GPA</p>
+                </div>
+                <div class="stat">
+                    <div class="circle">8.0</div>
+                    <p>IELTS Overall<br />7.5 Writing<br />8.5 Reading</p>
+                </div>
+                <div class="stat">
+                    <div class="circle">1500</div>
+                    <p>SAT Score<br>700 Evidence-Based Reading and Writing 800 Math</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section id="awards" class="section section--transparent">
+            <h2>HONORS & AWARDS</h2>
+
+            <!-- Modal for images -->
+            <div id="imageModal" class="img-popup-overlay" onclick="closeModal()">
+                <span class="close-btn">&times;</span>
+                <img id="imgFull" src="" alt="Full view">
+            </div>
+
+            <!-- Modal for text details -->
+            <div id="textModal" class="detail-modal-overlay">
+                <div class="detail-modal-content">
+                    <span class="close-detail" onclick="closeTextModal()">&times;</span>
+                    <div id="modalBody">
+                    </div>
+                </div>
+            </div>
+
+            <div class="awards-container">
+                <div class="award-card">
+                    <div class="award-content">
+                        <button class="see-more" data-modal="1">Grand Prix Prize</button><br>
+                        <h3>Advanced Innovation Global Competition 2024</h3>
+                        <p style="margin-bottom: 0.5em;"><strong>Topic: </strong> Research on the Bioactivity of Saponin
+                            from Bitter Melon and Its
+                            Application in Supporting Diabetes Treatment</p>
+                        <div class="award-content">
+                            <div id="desc-aigc" style="display:none;">
+                                <h4 style="color: #152cac; margin-top: 10px;">My Role:</h4>
+                                <ul style="padding-left: 20px; list-style-type: disc;">
+                                    <li><strong>Build and develop research ideas:</strong> Focus on natural resources
+                                        and common metabolic
+                                        diseases (e.g., diabetes) based on practical needs and scientific trends. Assess
+                                        feasibility by reading
+                                        international literature on saponins and the biological activity of bitter
+                                        melon. Outline objectives &
+                                        hypotheses and propose extraction & testing methods suitable for lab conditions.
+                                    </li>
+                                    <li><strong>Conduct key experiments:</strong> Extract saponin from bitter melon
+                                        using techniques such as
+                                        maceration and purification. Prepare samples and optimize conditions
+                                        (concentration, pH, and solvent
+                                        ratios) to maximize recovery efficiency. Assist in bioactivity testing,
+                                        assessing its antioxidant
+                                        capacity, and its effect on simulated glucose concentration. Record and process
+                                        data using Excel/Google
+                                        Sheets to analyse differences between samples.</li>
+                                    <li><strong>Analyse results & propose improvements:</strong> Analyse the alignment
+                                        between experimental
+                                        results and initial hypotheses. Propose method adjustments to improve saponin
+                                        purity in the extraction
+                                        process. Suggest future directions, such as cell testing, simulation models, or
+                                        product application.
+                                    </li>
+                                    <li><strong>Write scientific reports & design posters:</strong> Write the
+                                        methodology, results, and
+                                        discussion sections, ensuring the data is presented scientifically and
+                                        consistently. Design the poster
+                                        layout and illustrate with visual materials (charts, diagrams, and systematic
+                                        extraction flowcharts).
+                                        Participate in the final presentation, explain the research process, and address
+                                        questions from the
+                                        judging panel.</li>
+                                </ul>
+
+                                <h4 style="color: #152cac; margin-top: 15px;">Skills I Developed:</h4>
+                                <p><strong>Hard Skills:</strong> Maceration, Designing a poster with Canva</p>
+                                <p><strong>Soft Skills:</strong> Communication Skills (writing a report), Teamwork
+                                    (distribution & collaborative
+                                    work)</p>
+
+                                <h4 style="color: #152cac; margin-top: 15px;">Detailed Images:</h4>
+                                <div class="modal-image-grid"
+                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                                    <img src="./assets/AIGC.jpeg" loading="lazy"
+                                        style="width:100%; border: 1px solid #ddd;">
+                                    <img src="./assets/aigc.jpg" loading="lazy"
+                                        style="width:100%; border: 1px solid #ddd;">
+                                    <img src="./assets/spcn (1).jpg" loading="lazy"
+                                        style="width:100%; border: 1px solid #ddd;">
+                                    <img src="./assets/spcn (2).jpg" loading="lazy"
+                                        style="width:100%; border: 1px solid #ddd;">
+                                    <img src="./assets/spcn (3).jpg" loading="lazy"
+                                        style="width:100%; border: 1px solid #ddd;">
+                                    <img src="./assets/spcn (4).jpg" loading="lazy"
+                                        style="width:100%; border: 1px solid #ddd;">
+                                </div>
+                            </div>
+
+                            <button class="see-more-btn"
+                                onclick="openTextFromDiv('Advanced Innovation Global Competition 2024', 'desc-aigc')">See
+                                more</button>
+                        </div>
+                    </div>
+
+                    <!-- Khung ảnh dọc -->
+                    <div class="award-media-grid">
+                        <img title="Image 2" src="./assets/aigc.jpg" loading="lazy" onclick="openModal(this.src)">
+                        <img title="Image 3" src="./assets/spcn (1).jpg" loading="lazy" onclick="openModal(this.src)">
+                        <img title="Image 4" src="./assets/spcn (4).jpg" loading="lazy" onclick="openModal(this.src)">
+                    </div>
+                </div>
+
+                <div class="award-card">
+                    <div class="award-content">
+                        <button class="see-more" data-modal="1">Gold Medal</button><br>
+                        <h3>49th International Invention Show (INOVA-Croatia 2025)</h3>
+                        <p style="margin-bottom: 0.5em;"><strong>Topic: </strong> Extraction of Cinnamaldehyde from
+                            Vietnamese Cinnamon for the
+                            Formulation of Emulsion Gel to Inhibit Biofilm Formation on Medical Devices</p>
+                        <div class="award-content">
+                            <div id="desc-inova" style="display:none;">
+                                <h4 style="color: #152cac; margin-top: 10px;">My Role:</h4>
+                                <ul style="padding-left: 20px; list-style-type: disc;">
+                                    <li><strong>Build and develop research ideas:</strong> Focus on Vietnamese cinnamon
+                                        bark (Cinnamomum loureiroi) - a
+                                        valuable resource but underutilised in practical uses.</li>
+                                    <li><strong>Conduct key experiments:</strong>
+                                        <ul style="list-style-type: circle; padding-left: 20px; margin-top: 5px;">
+                                            <li>Use steam distillation to extract cinnamaldehyde.</li>
+                                            <li>Develop the cinnamaldehyde-containing nanoemulsion using the Phase
+                                                Inversion Point (PIP) method.</li>
+                                            <li>Employ formulation materials including Tween 80 (surfactant), propylene
+                                                glycol (cosurfactant), and
+                                                distilled water.</li>
+                                            <li>Incorporate the nanoemulsion into a gel base using Carbopol 940/HPMC,
+                                                glycerin, and triethanolamine
+                                                (neutralizer), achieving the complete emulsion gel formulation suitable
+                                                for medical device application.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                                <h4 style="color: #152cac; margin-top: 15px;">Skills I Developed:</h4>
+                                <p><strong>Hard Skills:</strong> Steam distillation, Formulating stable nanoemulsions
+                                    using the Phase Inversion Point
+                                    (PIP) method, a low-energy and sophisticated technique.</p>
+                                <p><strong>Knowledge:</strong> An understanding of the critical challenge posed by
+                                    hospital-acquired infections
+                                    associated with invasive medical devices.</p>
+
+                                <h4 style="color: #152cac; margin-top: 15px;">Detailed Images:</h4>
+                                <div class="modal-image-grid"
+                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                                    <img src="./assets/Cert_page-0001.jpg" loading="lazy"
+                                        style="width:100%; border: 1px solid #ddd;">
+                                    <img src="./assets/INOVA -2025_page-0001.jpg" loading="lazy"
+                                        style="width:100%; border: 1px solid #ddd;">
+                                    <img src="./assets/Inova (1).jpg" loading="lazy"
+                                        style="width:100%; border: 1px solid #ddd;">
+                                    <img src="./assets/Inova (2).jpg" loading="lazy"
+                                        style="width:100%; border: 1px solid #ddd;">
+                                    <img src="./assets/Inova (3).jpg" loading="lazy"
+                                        style="width:100%; border: 1px solid #ddd;">
+                                    <img src="./assets/Inova (4).jpg" style="width:100%; border: 1px solid #ddd;">
+                                </div>
+                            </div>
+
+                            <button class="see-more-btn"
+                                onclick="openTextFromDiv('49th International Invention Show', 'desc-inova')">See
+                                more</button>
+                        </div>
+                    </div>
+
+                    <!-- Khung ảnh dọc -->
+                    <div class="award-media-grid">
+                        <img title="Image 1" src="./assets/INOVA -2025_page-0001.jpg" loading="lazy"
+                            onclick="openModal(this.src)">
+                        <img title="Image 2" src="./assets/Inova (6).jpg" loading="lazy" onclick="openModal(this.src)">
+                        <img title="Image 3" src="./assets/Inova (5).jpg" loading="lazy" onclick="openModal(this.src)">
+                    </div>
+                </div>
+
+                <div class="award-card">
+
+                    <div class="award-content">
+                        <button class="see-more" data-modal="1">First Prize</button><br>
+                        <h3>Chemistry - Hanoi High School Olympiad 2025</h3>
+                    </div>
+
+                    <div class="award-media-single">
+                        <img src="./assets/HSGTPlop12.jpeg" loading="lazy" alt="City Level Prize"
+                            onclick="openModal(this.src)">
+                    </div>
+
+                </div>
+
+                <div class="award-card">
+
+                    <div class="award-content">
+                        <button class="see-more" data-modal="1">Gold Medal</button><br>
+                        <h3>Chemistry - Natural Science Olympiad of HUS High School for the Gifted Students 2025</h3>
+                    </div>
+
+                    <div class="award-media-single">
+                        <img src="assets/vnu.jpg" loading="lazy" alt="Olympic HUS" onclick="openModal(this.src)">
+                    </div>
+                </div>
+
+                <div class="award-card">
+
+                    <div class="award-content">
+                        <button class="see-more" data-modal="1">First Prize</button>
+                        <h3>Chemistry - High School Olympiad of Vietnam National University 2024</h3>
+                    </div>
+
+                    <div class="award-media-single">
+                        <img src="assets/olympicvnu.jpeg" loading="lazy" alt="Olympic VNU"
+                            onclick="openModal(this.src)">
+                    </div>
+                </div>
+
+                <div class="award-card">
+
+                    <div class="award-content">
+                        <button class="see-more" data-modal="1">Silver Medal</button><br>
+                        <h3>International STEM Olympiad 2025</h3>
+                    </div>
+                    <!-- Khung ảnh dọc -->
+                    <div class="award-media-single">
+                        <img src="assets/i-stem.jpg" loading="lazy" alt="STEM" onclick="openModal(this.src)">
+                    </div>
+                </div>
+
+                <div class="award-card">
+                    <div class="award-content">
+                        <button class="see-more" data-modal="1">Second Prize</button><br>
+                        <h3>Chemistry - Hanoi Secondary School Olympiad 2022</h3>
+                    </div>
+                    <div class="award-media-single">
+                        <img src="./assets/HSGTPlop9.jpeg" loading="lazy" alt="9th City Level Prize"
+                            onclick="openModal(this.src)">
+                    </div>
+                </div>
+
+                <div class="award-card">
+
+                    <div class="award-content">
+                        <button class="see-more" data-modal="1">First Prize</button><br>
+                        <h3>Chemistry - Cau Giay District Secondary School Olympiad 2022</h3>
+                    </div>
+                    <!-- Khung ảnh dọc -->
+                    <div class="award-media-single">
+                        <img src="./assets/HSGquanlop9.jpeg" loading="lazy" alt=" 9th District Level Prize"
+                            onclick="openModal(this.src)">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="section">
+            <h2>RESEARCH & PROJECTS</h2>
+
+            <div class="award-card"
+                style="grid-column: span 6; display: flex; flex-direction: row; gap: 30px; align-items: flex-start; padding: 25px;">
+                <div class="award-content">
+                    <button class="see-more"
+                        onclick="openTextFromDiv('Research Article: Water Pollution Status and Solutions in Vietnam', 'desc-pollution')">Published
+                        Article (IJMSM 2025)</button>
+                    <h3>International Journal of Multidisciplinary on Science and Management</h3>
+                    <p style="margin-bottom: 0.5em;">
+                        <strong>Status:</strong> Published (Vol 2, Issue 3) on
+                        <a href="https://www.ijmsm.org/ijmsm-v2i3p114.html" target="_blank"
+                            style="color: #152cac; text-decoration: none; font-weight: bold; border-bottom: 1px solid #152cac;">
+                            ijmsm.org/ijmsm-v2i3p114.html
+                        </a>
+                        | <strong>Focus:</strong> To Lich River & Wastewater Treatment
+                    </p>
+
+                    <div id="desc-pollution" ">
+                        <p>My works are associated with the <strong>daily, ongoing problems</strong> I have seen,
+                            especially after
+                            gaining a better understanding of
+                            chemicals and materials. Therefore, I co-author in the research article “Water Pollution
+                            Status and Solutions in
+                            Vietnam”, published in Volume 2, Issue 3 of the International Journal of Multidisciplinary
+                            on Science and Management
+                            (IJMSM 2025), relating to the To Lich River, which used to be the most contaminated and
+                            stinky river in Hanoi.
+                        </p>
+
+                        <h4 style="color: #152cac; margin-top: 15px;">Research Content:</h4>
+                        <ul style="padding-left: 20px;">
+                            <li>Analyze major sources of water contamination in Vietnam, including industrial waste,
+                                petroleum spills, domestic
+                                wastewater, soil erosion, agricultural runoff, and plastic pollution.
+                            </li>
+                            <li>Propose modern water purification solutions, such as integrated treatment technologies,
+                                hybrid machine-learning models,
+                                and chemical purification methods based on chlorine disinfection and spectrophotometric
+                                analysis.</li>
+                            <li>Conduct case studies in Hanoi with a focus on evaluating the Yen Xa Wastewater Treatment
+                                Plant and the master plan for
+                                revitalizing the To Lich River.</li>
+                        </ul>
+
+                        <h4 style="color: #152cac; margin-top: 15px;">My Role:</h4>
+                        <ul style="padding-left: 20px;">
+                            <li>Summarize Section II: Related Works on water pollution in Vietnam.</li>
+                            <li>Contribute to data analysis and present purification methods, including physical,
+                                chemical, and
+                                advanced technological approaches.</li>
+                            <li>Develop content for the subsection on the Application of Integrated Technologies in
+                                Section IV:
+                                Water Purification Methods and Section V: Case Study of Water Purification in Hanoi,
+                                Vietnam.
+                            </li>
+                        </ul>
+
+                        <p
+                            style="font-style: italic; margin-top: 15px; background: #f0f4ff; padding: 10px; border-radius: 5px;">
+                            Note: The Yen Xa Wastewater Treatment Plant successfully improved water quality on schedule
+                            by the end of August 2025. At that
+                            time, the research article had been published. It could have been more comprehensive if it
+                            had assessed the treatment
+                            plant's efficiency and its long-term results. In the future, if possible, I would love to
+                            update the water quality
+                            status and evaluate the methods the Yen Xa Wastewater Treatment Plant has implemented to
+                            achieve such a great result.
+
+                        </p>
+                    </div>
+                    <!-- <button class="see-more-btn"
+                        onclick="openTextFromDiv('Research Article: Water Pollution Status and Solutions in Vietnam', 'desc-pollution')">Read
+                        full summary</button> -->
+                </div>
+            </div>
+
+            <br />
+            <div class="award-card"
+                style="grid-column: span 6; display: flex; flex-direction: row; gap: 30px; align-items: flex-start; padding: 25px;">
+
+                <div class="award-content" style="flex: 1.2;">
+                    <h3 class="see-more" style="color: #152cac; margin-top: 0;">Biodegradable Plastic Project</h3>
+
+                    <p>Another time is when I read an article about landfill sites in Vietnam being overloaded. Unlike
+                        the waste-sorting systems in Singapore and the EU, Vietnam's waste treatment system remains
+                        underdeveloped and relies mainly on burying waste.</p>
+                    <p>Therefore, I found another way to reduce the amount of plastic discharged into the environment by
+                        promoting biodegradable plastic bags. By making a bioplastic bag from starch derived from
+                        <strong>Canada edulis Ker-Gawl</strong>, I understand better the process of creating a
+                        bioplastic bag and
+                        its degradation mechanism in soil.
+                    </p>
+                    <div
+                        style="margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-left: 4px solid #152cac; border-radius: 4px;">
+                        <p style="margin-bottom: 10px; font-size: 0.95em;"><strong>Product Portfolio:</strong>
+                            Collection of
+                            chemical
+                            products, experimental results, and design portfolios developed during this research
+                            process.</p>
+                        <a href="https://drive.google.com/file/d/1prIMRqs6y9_A0oIQbZaH1aVohcp1TM7X/view" target="_blank"
+                            class="portfolio-link">
+                            View Full Portfolio (PDF) &#8599;
+                        </a>
+                    </div>
+                </div>
+
+                <div class="social-gallery">
+                    <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+                     padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+                     border-radius: 8px; will-change: transform;">
+                        <iframe loading="lazy"
+                            style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+                            src="https://www.canva.com/design/DAGztcnjVms/McJqs7mg4bjdjgV4NUsyDA/watch?embed"
+                            allowfullscreen="allowfullscreen" allow="fullscreen">
+                        </iframe>
+                    </div>
+                    <p
+                        style="text-align: center; font-style: italic; font-size: 0.85em; color: #152cac; opacity: 0.8; margin-top: 8px;">
+                        Interactive Presentation: Biodegradable Plastic Research Overview
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Leadership Section -->
+        <section id="leadership" class="section">
+            <h2>LEADERSHIP EXPERIENCE</h2>
+
+            <div class="activity-card">
+                <div class="card-content">
+                    <div class="card-text">
+                        <div class="talent-tag">2025</div>
+                        <h3>Chemistry Major Representative in "Ngày Hội Anh Tài"</h3>
+                        <p>Represented the Chemistry Major and led the Major (with 200+ students from six Chemistry
+                            classes) in an 8-month competition with 7 major events.</p>
+                        <button class="see-more-btn" data-modal="modal2">See more</button>
+                    </div>
+                    <div class="card-image">
+                        <img src="./assets/lead2025 (2).jpg" alt="Chemistry Representative">
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="card-content reverse">
+                    <div class="card-text">
+                        <div class="talent-tag">2024-2025</div>
+                        <h3>Leader in Talent Performance (Two-year Runner-up)</h3>
+                        <p>Led 50+ performers to achieved Rank 2/13 for two consecutive years in the grand finale.</p>
+                        <button class="see-more-btn" data-modal="modal1">See more</button>
+                    </div>
+                    <div class="card-image">
+                        <img src="assets/per1.jpg" alt="Talent Performance Leader">
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="card-content">
+                    <div class="card-text">
+                        <div class="talent-tag">2023-2026</div>
+                        <h3>Academic Vice Monitor of Chemistry 1 Class</h3>
+                        <p>Managed study schedules and organized class events for three consecutive school years.</p>
+                        <button class="see-more-btn" data-modal="modal-vice-monitor">See more</button>
+                    </div>
+                    <div class="card-image">
+                        <img src="./assets/loppho (2).jpg" alt="Academic Vice Monitor">
+                    </div>
+                </div>
+            </div>
+
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
+
+                    <h4 class="modal-title">
+                        Leader in Talent Performance <br>
+                        Chemistry Major | 2024 & 2025
+                    </h4>
+
+                    <section>
+                        <h3 class="modal-heading">SITUATION</h3>
+                        <div class="modal-flex"
+                            style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
+                            <div class="situation-text" style="flex: 1; min-width: 280px;">
+                                <p>Talent Performance was a key part of "Ngày Hội Anh Tài” grand finale, with 13 majors’
+                                    eight-minute
+                                    performances showcased different talents (dancing, acting, singing, or playing the
+                                    instruments)
+                                    and conveyed meaningful messages.</p>
+                            </div>
+
+                            <div style="flex: 1; min-width: 250px; display: flex; justify-content: flex-end;">
+                                <img src="./assets/per1.jpg" alt="Talent Performance Situation"
+                                    style="width: 80%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); object-fit: cover;">
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="modal-heading">MY ROLE</h3>
+                        <div
+                            style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #152cac;">
+                            <ul style="padding-left: 20px; margin-bottom: 0;">
+                                <li><strong>Team Management:</strong> Led 55 members (50 performers + 5 backstage) in
+                                    2025 and 35
+                                    members (30 performers + 5 backstage) in 2024 to completed performances on time and
+                                    within
+                                    budget.</li>
+                                <li><strong>Creative Directing:</strong> Identified patterns in high-ranking
+                                    performances and wrote a
+                                    straightforward but touching plot for the major.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="modal-heading">RESULTS</h3>
+                        <div style="background: #eef1ff; padding: 15px; border-radius: 8px; border: 1px solid #152cac;">
+                            <p style="margin: 0; font-weight: bold; color: #152cac; text-align: center;">
+                                🏆 Both performances ranked 2/13 for two consecutive years (2024 & 2025).
+                            </p>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="modal-heading">SKILLS DEVELOPED</h3>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span
+                                style="background: #152cac; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">Leadership
+                                Skills</span>
+                            <span
+                                style="background: #152cac; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">Analytical
+                                Skills</span>
+                        </div>
+                    </section>
+
+                    <section style="margin-bottom: 50px;">
+                        <h3 class="modal-heading">PERFORMANCE GALLERY</h3>
+                        <div class="modal-gallery"
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; width: 100%;">
+                            <img src="./assets/lead 2024 (1).jpg" alt="Performance 3"
+                                style="width: 100%; height: 200px; border-radius: 8px; object-fit: cover; flex: none;">
+                            <img src="./assets/lead 2024 (3).jpg" alt="Performance 3"
+                                style="width: 100%; height: 200px; border-radius: 8px; object-fit: cover; flex: none;">
+                            <img src="./assets/lead 2024 (4).jpg" alt="Performance 3"
+                                style="width: 100%; height: 200px; border-radius: 8px; object-fit: cover; flex: none;">
+                            <img src="./assets/lead 2024 (5).jpg" alt="Performance 3"
+                                style="width: 100%; height: 200px; border-radius: 8px; object-fit: cover; flex: none;">
+                            <img src="./assets/per2.jpg" alt="Performance 2"
+                                style="width: 100%; height: 200px; border-radius: 8px; object-fit: cover; flex: none;">
+                            <img src="./assets/per3.jpg" alt="Performance 3"
+                                style="width: 100%; height: 200px; border-radius: 8px; object-fit: cover; flex: none;">
+                        </div>
+                    </section>
+
+                    <div style="height: 20px;"></div>
+                </div>
+            </div>
+
+            <div id="modal2" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+
+                    <h4 class="modal-title">
+                        Chemistry Major Representative <br>
+                        in "Ngày Hội Anh Tài 2025"
+                    </h4>
+
+                    <section>
+                        <h3 class="modal-heading">SITUATION</h3>
+                        <div class="modal-flex"
+                            style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
+                            <div class="situation-text" style="flex: 1; min-width: 280px;">
+                                <p>“Ngày Hội Anh Tài” was an annual competition among 13 majors of Hanoi - Amsterdam
+                                    High
+                                    School for the Gifted
+                                    with more than 1500 students involved. It lasted 8 months (from April to November)
+                                    and included:</p>
+                                <ul style="padding-left: 20px; margin-top: 10px;">
+                                    <li><strong>5 Pre-events:</strong> Dance Day, Charity Day, Major’s Clip, Flag Day,
+                                        Sports Day.</li>
+                                    <li><strong>The Grand Finale:</strong> Talent Performance, Major’s Art Exhibition.
+                                    </li>
+                                </ul>
+                                <p style="margin-top: 10px; font-style: italic;">The Major possessed the highest total
+                                    points was awarded “Most
+                                    Wanted Class”. This series of events strengthened leadership, creativity, and
+                                    student
+                                    bonds.</p>
+                            </div>
+
+                            <div style="flex: 1; min-width: 250px; display: flex; justify-content: flex-end;">
+                                <img src="./assets/nhat.jpg" alt="NHAT Representative"
+                                    style="width: 80%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); object-fit: cover;">
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="modal-heading">MY ROLE</h3>
+                        <div
+                            style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #152cac;">
+                            <p><strong>Represented the Chemistry Major:</strong></p>
+                            <ul style="padding-left: 20px; margin-bottom: 15px;">
+                                <li>Acted as primary point of contact between internal members, organisers, and other
+                                    representatives.</li>
+                                <li>Resolved conflicts and worked harmoniously to ensured collaborative solutions and
+                                    minimized
+                                    penalties.</li>
+                            </ul>
+                            <p><strong>Co-led the Major (200+ students from 6 Chemistry classes):</strong></p>
+                            <ul style="padding-left: 20px;">
+                                <li>Developed ideas, plans, and strategies for every event.</li>
+                                <li>Tracked progress to ensured efficient and on-time completion.</li>
+                                <li>Strengthened internal engagement, <strong>increased Talent Performance participants
+                                        by
+                                        >50%.</strong></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="modal-heading">SKILLS DEVELOPED</h3>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span
+                                style="background: #152cac; color: white; padding: 5px 15px; margin: 5px; border-radius: 20px; font-size: 0.9em;">Communication</span>
+                            <span
+                                style="background: #152cac; color: white; padding: 5px 15px; margin: 5px; border-radius: 20px; font-size: 0.9em;">Management</span>
+                            <span
+                                style="background: #152cac; color: white; padding: 5px 15px; margin: 5px; border-radius: 20px; font-size: 0.9em;">Interpersonal
+                                Skills</span>
+                        </div>
+                    </section>
+
+                    <section style="margin-bottom: 50px;">
+                        <h3 class="modal-heading">CLASS MEMORIES GALLERY</h3>
+                        <div class="modal-gallery"
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                            <img src="./assets/lead2025 (1).jpg" alt="Class Event 1"
+                                style="width: 100%; border-radius: 8px;">
+                            <img src="./assets/lead2025 (3).jpg" alt="Class Event 2"
+                                style="width: 100%; border-radius: 8px;">
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+            <div id="modal-vice-monitor" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="this.parentElement.parentElement.style.display='none'">&times;</span>
+
+                    <h4 class="modal-title">
+                        Academic Vice Monitor <br>
+                        Chemistry 1 Class | 2023 - 2026
+                    </h4>
+
+                    <section>
+                        <h3 class="modal-heading">SITUATION</h3>
+                        <div class="modal-flex"
+                            style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
+                            <div class="situation-text" style="flex: 1; min-width: 280px;">
+                                <p>As the Academic Vice Monitor of the specialized Chemistry 1 class at Hanoi -
+                                    Amsterdam High
+                                    School, I was responsible for managed the academic performance and collective
+                                    activities of the
+                                    class throughout three school years.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="modal-heading">MY ROLE</h3>
+                        <div
+                            style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #152cac;">
+                            <ul style="padding-left: 20px; margin-bottom: 0;">
+                                <li style="margin-bottom: 10px;"><strong>Academic Management:</strong> Kept the class
+                                    updated on
+                                    study schedules and helped everyone prepared for exams effectively to ensured high
+                                    academic
+                                    standards.</li>
+                                <li style="margin-bottom: 10px;"><strong>Event Organisation:</strong> Successfully
+                                    organised class
+                                    events such as the yearbook project, teachers' birthdays, and various holiday
+                                    celebrations.</li>
+                                <li><strong>Class Bonding:</strong> Actively built class unity and maintained a joyful,
+                                    lively
+                                    learning atmosphere through small daily initiatives.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3 class="modal-heading">SKILLS DEVELOPED</h3>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span
+                                style="background: #152cac; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">Commitment</span>
+                            <span
+                                style="background: #152cac; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">Social
+                                Consciousness</span>
+                            <span
+                                style="background: #152cac; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.9em;">Time
+                                Management</span>
+                        </div>
+                    </section>
+
+                    <section style="margin-bottom: 50px;">
+                        <h3 class="modal-heading">CLASS MEMORIES GALLERY</h3>
+                        <div class="modal-gallery"
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                            <img src="./assets/loppho (1).jpg" alt="Class Event 1"
+                                style="width: 100%; border-radius: 8px;">
+                            <img src="./assets/loppho (2).jpg" alt="Class Event 2"
+                                style="width: 100%; border-radius: 8px;">
+                        </div>
+                    </section>
+
+                    <div style="height: 20px;"></div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Social Work Section -->
+        <section id="social" class="section">
+            <h2>SOCIAL WORK & ACTIVITIES</h2>
+            <div class="social-grid">
+
+                <!-- Card 1 -->
+                <div class="social-item">
+
+                    <div class="social-card">
+                        <div class="talent-tag">2023-2024</div>
+                        <h3>Member of Green Hanoi - Amsterdam Club (GHA)</h3>
+                        <p class="social-desc">
+                            Participated in a prominent environmental club at school, aiming to raise students'
+                            awareness of the
+                            environment and local cultures through various community projects and workshops.
+                        </p>
+
+                        <div
+                            style="margin-top: 20px; padding: 15px; background: rgba(255, 255, 255, 0.5); border-radius: 10px; border: 1px dashed #b23b4c44;">
+                            <strong
+                                style="color: #b23b4c; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                                <span
+                                    style="background: #b23b4c; color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 0.7em;">★</span>
+                                Role & Contributions:
+                            </strong>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li
+                                    style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 1.1rem; color: #444; line-height: 1.5;">
+                                    <span
+                                        style="position: absolute; left: 0; color: #b23b4c; font-size: 1.2rem; top: -1px;">✔</span>
+                                    Prepare and give <strong>Chung cakes</strong> to local laborers during Tet,
+                                    promoting community support and cultural appreciation.
+                                </li>
+                                <li
+                                    style="position: relative; padding-left: 30px; font-size: 1.1rem; color: #444; line-height: 1.5;">
+                                    <span
+                                        style="position: absolute; left: 0; color: #b23b4c; font-size: 1.2rem; top: -1px;">✔</span>
+                                    Collect used papers and exchange them for handmade, <strong>eco-friendly
+                                        gifts</strong>, raising environmental awareness among students.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="social-gallery" id="social-gallery-1">
+                        <img src="./assets/green_1.jpg" alt="Green Club 1">
+                        <img src="./assets/green_2.jpg" alt="Green Club 2">
+                        <img src="./assets/green_3.jpg" alt="Green Club 3">
+                        <img src="./assets/green_4.jpg" alt="Green Club 4">
+
+                        <button class="gallery-prev">&#10094;</button>
+                        <button class="gallery-next">&#10095;</button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="social-item">
+
+                    <div class="social-card">
+                        <div class="talent-tag">2024</div>
+                        <h3>Leader of Finance and MC of Camp Blast</h3>
+                        <p class="social-desc">
+                            Camp Blast is a one-week summer camp for children organised by Green Hanoi - Amsterdam club.
+                        </p>
+
+                        <div
+                            style="margin-top: 20px; padding: 15px; background: rgba(255, 255, 255, 0.5); border-radius: 10px; border: 1px dashed #b23b4c44;">
+                            <strong
+                                style="color: #b23b4c; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                                <span
+                                    style="background: #b23b4c; color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 0.7em;">★</span>
+                                Role & Contributions:
+                            </strong>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li
+                                    style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 1.1rem; color: #444; line-height: 1.5;">
+                                    <span
+                                        style="position: absolute; left: 0; color: #b23b4c; font-size: 1.2rem; top: -1px;">✔</span>
+                                    Write financial proposals, reach out for external sponsorships (received a total of
+                                    <strong>10.000.000 VND</strong>), and respond to emails.
+                                </li>
+                                <li
+                                    style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 1.1rem; color: #444; line-height: 1.5;">
+                                    <span
+                                        style="position: absolute; left: 0; color: #b23b4c; font-size: 1.2rem; top: -1px;">✔</span>
+                                    Delivered environmental and cultural activities for campers.
+                                </li>
+
+                                <li
+                                    style="position: relative; padding-left: 30px; margin-bottom: 0; font-size: 1.1rem; color: #444; line-height: 1.5;">
+                                    <span
+                                        style="position: absolute; left: 0; color: #b23b4c; font-size: 1.2rem; top: -1px;">✔</span>
+                                    Served as the Master of Ceremonies (MC), host the Gala night, and welcome sponsors.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="social-gallery" id="social-gallery-1">
+                        <img src="./assets/blast_1.jpg" alt="Green Club 1">
+                        <img src="./assets/blast_2.jpg" alt="Green Club 2">
+                        <img src="./assets/blast_3.jpg" alt="Green Club 3">
+                        <img src="./assets/blast_4.jpg" alt="Green Club 4">
+                        <img src="./assets/blast_5.jpg" alt="Green Club 4">
+
+                        <button class="gallery-prev">&#10094;</button>
+                        <button class="gallery-next">&#10095;</button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="social-item">
+
+                    <div class="social-card">
+                        <div class="talent-tag">2025</div>
+                        <h3>Volunteered at SOS Children's Village</h3>
+                        <p class="social-desc">
+                            Location: SOS Children's Village, Pham Than Duat Street, Mai Dich Ward, Cau Giay District,
+                            Hanoi.
+                        </p>
+
+                        <div
+                            style="margin-top: 20px; padding: 15px; background: rgba(255, 255, 255, 0.5); border-radius: 10px; border: 1px dashed #b23b4c44;">
+                            <strong
+                                style="color: #b23b4c; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                                <span
+                                    style="background: #b23b4c; color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 0.7em;">★</span>
+                                Role & Contributions:
+                            </strong>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li
+                                    style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 1.1rem; color: #444; line-height: 1.5;">
+                                    <span
+                                        style="position: absolute; left: 0; color: #b23b4c; font-size: 1.2rem; top: -1px;">✔</span>
+                                    Serve as a <strong>local sponsor</strong>, help organize a joyful lunch for eight
+                                    families at the Village.
+                                </li>
+                                <li
+                                    style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 1.1rem; color: #444; line-height: 1.5;">
+                                    <span
+                                        style="position: absolute; left: 0; color: #b23b4c; font-size: 1.2rem; top: -1px;">✔</span>
+                                    Organise and manage the statue painting activity.
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="social-gallery" id="social-gallery-1">
+                        <img src="./assets/sos_1.jpg" alt="Green Club 1">
+                        <img src="./assets/sos_2.jpg" alt="Green Club 2">
+                        <img src="./assets/sos_3.jpg" alt="Green Club 3">
+                        <img src="./assets/sos_4.jpg" alt="Green Club 4">
+                        <img src="./assets/sos_5.jpg" alt="Green Club 4">
+
+                        <button class="gallery-prev">&#10094;</button>
+                        <button class="gallery-next">&#10095;</button>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="social-item">
+
+                    <div class="social-card">
+                        <div class="talent-tag">2024</div>
+                        <h3>Volunteered at Thuy An Rehabilitation Center for People with Disabilities</h3>
+                        <p class="social-desc">
+                            Location: Thuy An commune, Ba Vi district, Hanoi.
+                        </p>
+
+                        <div
+                            style="margin-top: 20px; padding: 15px; background: rgba(255, 255, 255, 0.5); border-radius: 10px; border: 1px dashed #b23b4c44;">
+                            <strong
+                                style="color: #b23b4c; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                                <span
+                                    style="background: #b23b4c; color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 0.7em;">★</span>
+                                Role & Contributions:
+                            </strong>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li
+                                    style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 1.1rem; color: #444; line-height: 1.5;">
+                                    <span
+                                        style="position: absolute; left: 0; color: #b23b4c; font-size: 1.2rem; top: -1px;">✔</span>
+                                    Serve as a <strong>local sponsor</strong> and prepare a short performance to
+                                    entertain disabled kids.
+                                </li>
+                                <li
+                                    style="position: relative; padding-left: 30px; margin-bottom: 12px; font-size: 1.1rem; color: #444; line-height: 1.5;">
+                                    <span
+                                        style="position: absolute; left: 0; color: #b23b4c; font-size: 1.2rem; top: -1px;">✔</span>
+                                    Be the MC of the programme.
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="social-gallery" id="social-gallery-1">
+                        <img src="./assets/thuyan_1.jpg" alt="Green Club 1">
+                        <img src="./assets/thuyan_2.jpg" alt="Green Club 2">
+                        <img src="./assets/thuyan_3.jpg" alt="Green Club 3">
+                        <img src="./assets/thuyan_4.jpg" alt="Green Club 4">
+
+                        <button class="gallery-prev">&#10094;</button>
+                        <button class="gallery-next">&#10095;</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Modals
+        <div id="modal3" class="modal">
+            <div class="modal-content2">
+                <span class="close">&times;</span>
+                <h3>SOS Children's Village</h3>
+                <p><strong>Date:</strong> Morning of Sunday, August 3, 2025<br>
+                    <strong>Location:</strong> SOS Children's Village, Pham Than Duat Street, Mai Dich Ward, Cau Giay
+                    District, Hanoi<br>
+                    <strong>General Role:</strong> Local sponsor, organised lunch for 8 families, coordinated games.<br>
+                    <strong>Specific Role:</strong> Managed the statue painting activity for children.
+                </p>
+            </div>
+        </div>
+
+        <div id="modal4" class="modal">
+            <div class="modal-content2">
+                <span class="close">&times;</span>
+                <h3>Thuy An Rehabilitation Center</h3>
+                <p><strong>General Role:</strong> Local sponsor, prepared a short performance to entertain disabled
+                    kids.<br>
+                    <strong>Specific Role:</strong> MC of the programme.
+                </p>
+            </div>
+        </div> -->
+
+        <!-- Talents Section -->
+        <section id="talents" class="section">
+            <h2>TALENTS & HOBBIES</h2>
+            <div class="talents-container">
+
+                <div class="talent-card baking-card">
+                    <div class="talent-info">
+                        <div class="talent-tag">Passion</div>
+                        <h3>Baking</h3>
+                        <p>"I’ve loved baking since I was a child, not just because of sweet results, but also the joy
+                            of
+                            mastering new recipes... Over time, I realised these instincts can align with scientific
+                            procedures,
+                            bridging my kitchen experiments with my future goals: to become a dedicated and impactful
+                            chemist."
+                        </p>
+                    </div>
+                    <div class="talent-media-grid">
+                        <img src="./assets/baking (1).jpg" alt="Baking 1">
+                        <img src="./assets/baking (2).jpg" alt="Baking 2">
+                        <img src="./assets/baking (3).jpg" alt="Baking 3">
+                        <img src="./assets/baking (4).jpg" alt="Baking 4">
+                    </div>
+                </div>
+
+                <div class="talents-sub-grid">
+                    <div class="talent-card">
+                        <div class="talent-info">
+                            <div class="talent-tag">Performance</div>
+                            <h3>Dancing</h3>
+                            <p>Dancer of GALA Hanoi-Amsterdam Art Team 2023 “Đêm Trắng”</p>
+                        </div>
+                        <div class="talent-media-single">
+                            <img src="./assets/gala_2.jpg" alt="Dancing">
+                        </div>
+                    </div>
+
+                    <div class="talent-card">
+                        <div class="talent-info">
+                            <div class="talent-tag">Creative</div>
+                            <h3>Acting</h3>
+                            <p>Main Character of Chemistry Department's Clip in “Ngày Hội Anh Tài - 2025”</p>
+                        </div>
+                        <div class="talent-media-single">
+                            <img src="./assets/clip_5.JPG" alt="Acting">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section" style="padding: 80px 20px; background: #fdfdfd;">
+            <h2>GET IN TOUCH</h2>
+
+            <div class="contact-buttons">
+                <a href="mailto:phamhangoc2008@gmail.com" class="contact-btn">
+                    <i class="fas fa-envelope"></i>
+                    Email Me
+                </a>
+
+                <a href="https://drive.google.com/file/d/1UDgraFfgYm7YRtq4Iu-KOyjRR5AC1wqR/view?usp=sharing"
+                    target="_blank" class="contact-btn cv-special">
+                    <i class="fas fa-file-pdf"></i>
+                    View My CV
+                </a>
+
+                <a href="tel:0582464214" class="contact-btn">
+                    <i class="fas fa-phone-alt"></i>
+                    Phone Me
+                </a>
+            </div>
+
+            <p style="text-align: center; margin-top: 30px; color: #888; font-style: italic;">
+                Open for collaborations and interesting chemistry projects!
+            </p>
+        </section>
+
+        <div class="img-modal" id="imgModal" aria-hidden="true">
+            <button class="img-modal__close" id="imgModalClose" aria-label="Close">✕</button>
+            <div class="img-modal__dialog">
+                <img id="imgModalSrc" alt="">
+            </div>
+        </div>
+
+
+        <script>
+            // Smooth scrolling function
+            function scrollToSection(sectionId) {
+                document.getElementById(sectionId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+
+            // Create floating particles
+            function createEnhancedParticle() {
+                const particle = document.createElement('div');
+                const types = ['small', 'medium', 'large'];
+                const type = types[Math.floor(Math.random() * types.length)];
+
+                particle.className = `particle ${type}`;
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 5 + 6) + 's';
+
+                document.body.appendChild(particle);
+
+                setTimeout(() => {
+                    particle.remove();
+                }, 8000);
+            }
+
+            // Thay thế setInterval cũ
+            setInterval(createEnhancedParticle, 200);
+            // Thêm vào cuối script
+            document.querySelectorAll('.award-card, .research-card, .activity-card, .social-card').forEach(card => {
+                card.addEventListener('mouseenter', function (e) {
+                    this.style.filter = 'brightness(1.1)';
+                    this.style.animation = 'cardFloat 2s ease-in-out infinite';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.filter = 'brightness(1)';
+                    this.style.animation = 'none';
+                });
+            });
+
+            // Add animation delays to sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach((section, index) => {
+                section.style.animationDelay = (index * 0.2) + 's';
+            });
+
+            // Add hover effects to cards
+            const cards = document.querySelectorAll('.education-card, .award-card, .research-card, .activity-card, .talent-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Interactive click effects
+            document.addEventListener('click', function (e) {
+                const ripple = document.createElement('div');
+                ripple.style.position = 'fixed';
+                ripple.style.width = '20px';
+                ripple.style.height = '20px';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(79, 172, 254, 0.6)';
+                ripple.style.left = (e.clientX - 10) + 'px';
+                ripple.style.top = (e.clientY - 10) + 'px';
+                ripple.style.pointerEvents = 'none';
+                ripple.style.animation = 'rippleEffect 0.6s ease-out';
+                document.body.appendChild(ripple);
+
+                setTimeout(() => ripple.remove(), 600);
+            });
+
+            // Add ripple effect animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes rippleEffect {
+                    0% {
+                        transform: scale(1);
+                        opacity: 1;
+                    }
+                    100% {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+            (function () {
+                const modal = document.getElementById('imgModal');
+                const modalImg = document.getElementById('imgModalSrc');
+                const btnClose = document.getElementById('imgModalClose');
+
+                function openModal(src, alt) {
+                    modalImg.src = src;
+                    modalImg.alt = alt || '';
+                    modal.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                }
+                function closeModal() {
+                    modal.classList.remove('open');
+                    modalImg.src = '';
+                    document.body.style.overflow = '';
+                }
+
+                document.querySelectorAll('.award-media img, .social-gallery img, .atom-gallery img').forEach(img => {
+                    img.style.cursor = 'zoom-in';
+                    img.addEventListener('click', () => openModal(img.src, img.alt));
+                });
+
+                btnClose.addEventListener('click', closeModal);
+                modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+                document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+            })();
+
+            // "See more"
+            document.querySelectorAll(".see-more").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const modalId = btn.getAttribute("data-modal");
+                    document.getElementById(modalId).style.display = "flex";
+                });
+            });
+
+            // See more btn
+            document.querySelectorAll(".see-more-btn").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const modalId = btn.getAttribute("data-modal");
+                    document.getElementById(modalId).style.display = "flex";
+                });
+            });
+
+            // X đóng popup
+            document.querySelectorAll(".modal .close").forEach(closeBtn => {
+                closeBtn.addEventListener("click", () => {
+                    closeBtn.closest(".modal").style.display = "none";
+                });
+            });
+
+            window.addEventListener("click", (e) => {
+                if (e.target.classList.contains("modal")) {
+                    e.target.style.display = "none";
+                }
+            });
+
+            document.querySelectorAll(".social-card").forEach(card => {
+                card.addEventListener("click", () => {
+                    const modalId = card.getAttribute("data-modal");
+                    document.getElementById(modalId).style.display = "flex";
+                });
+            });
+
+            document.querySelectorAll(".close").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    btn.closest(".modal").style.display = "none";
+                });
+            });
+
+            window.addEventListener("click", e => {
+                if (e.target.classList.contains("modal")) {
+                    e.target.style.display = "none";
+                }
+            });
+
+            // Gallery next/prev - Cấu trúc chuẩn cho nhiều gallery
+            document.querySelectorAll(".social-gallery").forEach(gallery => {
+                let currentIndex = 0;
+                const imgs = gallery.querySelectorAll("img");
+                const prevBtn = gallery.querySelector(".gallery-prev");
+                const nextBtn = gallery.querySelector(".gallery-next");
+
+                // Nếu không có ảnh nào thì bỏ qua
+                if (imgs.length === 0) return;
+
+                function showImage(index) {
+                    imgs.forEach((img, i) => {
+                        img.style.display = i === index ? "block" : "none";
+                    });
+                }
+
+                if (nextBtn) {
+                    nextBtn.addEventListener("click", (e) => {
+                        e.stopPropagation(); // Ngăn chặn sự kiện click lan ra ngoài card
+                        currentIndex = (currentIndex + 1) % imgs.length;
+                        showImage(currentIndex);
+                    });
+                }
+
+                if (prevBtn) {
+                    prevBtn.addEventListener("click", (e) => {
+                        e.stopPropagation(); // Ngăn chặn sự kiện click lan ra ngoài card
+                        currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+                        showImage(currentIndex);
+                    });
+                }
+
+                // Khởi tạo trạng thái ban đầu
+                showImage(currentIndex);
+            });
+
+            (function () {
+                const btn = document.getElementById('scrollTopBtn');
+                const target = document.querySelector('.header.hero-cover') || document.getElementById('top');
+
+                const SHOW_AFTER = 200;
+
+                // toggle visibility on scroll
+                function checkScroll() {
+                    if (window.scrollY > SHOW_AFTER) {
+                        btn.classList.add('visible');
+                    } else {
+                        btn.classList.remove('visible');
+                    }
+                }
+
+                // smooth scroll to the target header
+                function scrollToTop(e) {
+                    e.preventDefault();
+                    if (!target) {
+                        // fallback to top of document
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        return;
+                    }
+
+                    // find top of target (account for fixed header if needed)
+                    const rect = target.getBoundingClientRect();
+                    const offset = window.pageYOffset + rect.top;
+
+                    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                    if (prefersReducedMotion) {
+                        window.scrollTo(0, offset);
+                    } else {
+                        window.scrollTo({ top: offset, behavior: 'smooth' });
+                    }
+                    target.setAttribute('tabindex', '-1');
+                    target.focus({ preventScroll: true });
+                    setTimeout(() => target.removeAttribute('tabindex'), 1000);
+                }
+
+                // events
+                window.addEventListener('scroll', checkScroll, { passive: true });
+                window.addEventListener('load', checkScroll);
+                btn.addEventListener('click', scrollToTop);
+
+                btn.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        btn.click();
+                    }
+                });
+            })();
+
+            // Image modal function
+            function openModal(src) {
+                const modal = document.getElementById("imageModal");
+                const fullImg = document.getElementById("imgFull");
+
+                modal.style.display = "flex"; // Hiện overlay
+                fullImg.src = src;           // Gán ảnh
+                document.body.style.overflow = "hidden"; // Khóa cuộn trang khi đang xem ảnh
+            }
+
+            function closeModal() {
+                document.getElementById("imageModal").style.display = "none";
+                document.body.style.overflow = "auto"; // Mở cuộn trang lại
+            }
+
+            function openTextFromDiv(title, divId) {
+                const detailContent = document.getElementById(divId).innerHTML;
+                const modal = document.getElementById('textModal');
+                const body = document.getElementById('modalBody');
+                const contentBox = modal.querySelector('.detail-modal-content');
+
+                body.innerHTML = `
+                <h2 style="color: #152cac !important; margin-bottom: 15px; font-family: 'Crimson Text', serif; text-align: center;">${title}</h2>
+                <div class="modal-inner-text" style="text-align: left; font-size: 1rem; line-height: 1.6;">
+                    ${detailContent}
+                </div>
+                `;
+
+                // Hiện modal
+                modal.style.display = 'flex';
+
+                // 1. Khóa cuộn trang chính (chống trôi trang khi đang xem pop-up)
+                document.body.style.overflow = 'hidden';
+                document.documentElement.style.overflow = 'hidden'; // Thêm dòng này cho chắc chắn trên một số trình duyệt mobile
+
+                // 2. Đưa thanh cuộn của pop-up lên đầu trang
+                if (contentBox) {
+                    contentBox.scrollTop = 0;
+                }
+            }
+
+            function closeTextModal() {
+                document.getElementById('textModal').style.display = 'none';
+
+                // Mở lại cuộn trang
+                document.body.style.overflow = 'auto';
+                document.documentElement.style.overflow = 'auto';
+            }
+
+            // Đóng modal khi click ra ngoài vùng trắng
+            window.onclick = function (event) {
+                let modal = document.getElementById('textModal');
+                if (event.target == modal) closeTextModal();
+            }
+        </script>
+    </body>
+
+</html>
